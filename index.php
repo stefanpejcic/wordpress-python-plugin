@@ -3,12 +3,14 @@
  * Plugin Name: WordPress Python Plugin
  * Plugin URI: https://pluginsbay.com/plugin/wordpress-python-plugin
  * Description: A simple plugin that runs a specified .py file and outputs it as a shortcode
- * Version: 1.0.1
+ * Version: 1.0.2
  * Author: Stefan Pejcic
  * Author URI: https://stefanpejcic.com
  * License: GPL3
  */
- add_shortcode( 'python', 'embed_python' );
+if ( !function_exists( 'add_action' ) ) {
+	exit;
+}
 
 function embed_python( $attributes )
 {
@@ -31,3 +33,6 @@ function embed_python( $attributes )
 
     return $read;
 }
+
+ add_shortcode( 'python', 'embed_python' );
+
